@@ -145,17 +145,23 @@ finance_dashboard.pbix     — Power BI: 3-page interactive dashboard
 ## 📈 Power BI Dashboard
 
 **Page 1 — Financial Overview**
+![Financial Overview](Screenshots/Page%201_Financial%20Overview.png)
+
 - KPI cards: Total Income, Total Expenses, Net Savings, Leakage Rate
 - Line chart: Monthly income vs expenses (Jan–Jul 2026)
 - Donut chart: Spending by category
 
 **Page 2 — Leakage Analysis**
+![Leakage Analysis](Screenshots/Page%202_Leakage%20Analysis.png)
+
 - Bar chart: Leakage count by month
 - Donut chart: Spending by risk band
 - Bar chart: Leakage by category
 - Table: High risk transactions (filtered to High Risk only)
 
 **Page 3 — ML Results**
+![ML Results](Screenshots/Page%203_ML%20Results.png)
+
 - Bar chart: Top 10 feature importance
 - Table: Model comparison (all 3 models, all metrics)
 
