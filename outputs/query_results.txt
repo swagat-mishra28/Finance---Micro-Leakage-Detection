@@ -1,0 +1,287 @@
+ month_name | month | total_income | total_expenses | net_savings | savings_rate_pct 
+------------+-------+--------------+----------------+-------------+------------------
+ January    |     1 |     20706.00 |        5347.74 |    15358.26 |            74.17
+ February   |     2 |     95179.00 |       18215.30 |    76963.70 |            80.86
+ March      |     3 |     53857.00 |      136537.94 |   -82680.94 |          -153.52
+ April      |     4 |     30999.00 |       32230.79 |    -1231.79 |            -3.97
+ May        |     5 |     35795.00 |       42017.36 |    -6222.36 |           -17.38
+ June       |     6 |     17779.00 |       18753.11 |     -974.11 |            -5.48
+ July       |     7 |         0.00 |          17.70 |      -17.70 |                 
+(7 rows)
+
+     category     | transaction_count | total_spent | avg_per_transaction | largest_transaction 
+------------------+-------------------+-------------+---------------------+---------------------
+ One_off_Large    |                 3 |    93133.00 |            31044.33 |            75000.00
+ One_off_Transfer |                28 |    46479.70 |             1659.99 |             4000.00
+ Bank Transfer    |                 1 |    25000.00 |            25000.00 |            25000.00
+ Recurring_Large  |                 4 |    17577.60 |             4394.40 |             6243.60
+ One_off_Micro    |               119 |    15080.13 |              126.72 |              420.00
+(5 rows)
+
+   risk_band   | transaction_count | total_amount | avg_leakage_score | pct_of_all_transactions 
+---------------+-------------------+--------------+-------------------+-------------------------
+ High Risk     |                89 |    150154.02 |             56.33 |                   17.80
+ Moderate Risk |               335 |    102768.22 |             38.73 |                   67.00
+ Low Risk      |                76 |       197.70 |             20.47 |                   15.20
+(3 rows)
+
+ month_name | month | total_transactions | leakage_count | leakage_amount | leakage_rate_pct | mom_leakage_change 
+------------+-------+--------------------+---------------+----------------+------------------+--------------------
+ January    |     1 |                 41 |             0 |           0.00 |             0.00 |                   
+ February   |     2 |                 93 |             1 |          59.00 |             1.08 |              59.00
+ March      |     3 |                157 |             5 |        5272.96 |             3.18 |            5213.96
+ April      |     4 |                115 |             3 |        1140.04 |             2.61 |           -4132.92
+ May        |     5 |                 68 |             5 |         932.96 |             7.35 |            -207.08
+ June       |     6 |                 25 |             7 |        5133.90 |            28.00 |            4200.94
+ July       |     7 |                  1 |             0 |           0.00 |             0.00 |           -5133.90
+(7 rows)
+
+ payment_mode | total_txn | leakage_txn | total_spent | avg_leakage_score | leakage_rate_pct 
+--------------+-----------+-------------+-------------+-------------------+------------------
+ UPI          |       487 |          21 |   228084.54 |             39.60 |             4.31
+ OTHER        |         1 |           0 |        0.00 |             31.00 |             0.00
+ IMPS         |         1 |           0 |        0.00 |             13.00 |             0.00
+ ATM          |         5 |           0 |        0.00 |             17.00 |             0.00
+ BANK         |         4 |           0 |       35.40 |             21.50 |             0.00
+ NEFT         |         2 |           0 |    25000.00 |             23.00 |             0.00
+(6 rows)
+
+ day_type | transaction_count | total_spent | avg_transaction | leakage_count | avg_risk_score 
+----------+-------------------+-------------+-----------------+---------------+----------------
+ Weekend  |                94 |    47251.48 |          502.68 |             4 |          51.24
+ Weekday  |               295 |   205868.46 |          697.86 |            17 |          39.69
+(2 rows)
+
+  txn_no   |  txn_date  |      category      |  entity_id   | amount  | leakage_score | risk_band | ml_leakage_probability 
+-----------+------------+--------------------+--------------+---------+---------------+-----------+------------------------
+ T9614929  | 2026-05-02 | One_off_Micro      | PERSON_149   |  300.00 |         67.00 | High Risk |                 0.3000
+ S41217728 | 2026-03-01 | One_off_Micro      | PERSON_063   |  220.00 |         66.00 | High Risk |                 0.0800
+ T67850181 | 2026-04-05 | Recurring_Large    | PERSON_004   | 3634.00 |         65.00 | High Risk |                 0.0200
+ S67427994 | 2026-05-02 | One_off_Micro      | PERSON_148   |  190.00 |         65.00 | High Risk |                 0.0800
+ S47628761 | 2026-02-01 | Recurring_Transfer | PERSON_004   |  900.00 |         65.00 | High Risk |                 0.0000
+ S90161957 | 2026-05-02 | Recurring_Micro    | PERSON_028   |  165.00 |         65.00 | High Risk |                 0.0400
+ T37797059 | 2026-04-05 | One_off_Micro      | PERSON_126   |  160.00 |         64.00 | High Risk |                 0.1900
+ S74795448 | 2026-05-16 | Shopping           | MERCHANT_025 |  357.00 |         64.00 | High Risk |                 0.1800
+ T14743699 | 2026-05-03 | Recurring_Micro    | PERSON_139   |  200.00 |         62.00 | High Risk |                 0.0400
+ U64320593 | 2026-04-25 | Travel             | MERCHANT_022 | 8556.00 |         61.00 | High Risk |                 0.1500
+(10 rows)
+
+ entity_id  | entity_type |      category      | times_paid | total_paid | avg_payment | days_span | payments_per_day | max_risk_score 
+------------+-------------+--------------------+------------+------------+-------------+-----------+------------------+----------------
+ PERSON_004 | PERSON      | Recurring_Micro    |         40 |    9899.00 |      247.48 |       152 |            0.263 |          59.00
+ PERSON_004 | PERSON      | Recurring_Large    |         40 |    9899.00 |      247.48 |       152 |            0.263 |          65.00
+ PERSON_004 | PERSON      | Recurring_Transfer |         40 |    9899.00 |      247.48 |       152 |            0.263 |          65.00
+ PERSON_044 | PERSON      | Recurring_Large    |         15 |    9428.60 |      628.57 |        95 |            0.158 |          45.00
+ PERSON_044 | PERSON      | Recurring_Transfer |         15 |    9428.60 |      628.57 |        95 |            0.158 |          45.00
+ PERSON_044 | PERSON      | Recurring_Micro    |         15 |    9428.60 |      628.57 |        95 |            0.158 |          56.00
+ PERSON_009 | PERSON      | Recurring_Large    |         19 |    7631.00 |      401.63 |       153 |            0.124 |          55.00
+ PERSON_009 | PERSON      | Recurring_Transfer |         19 |    7631.00 |      401.63 |       153 |            0.124 |          54.00
+ PERSON_009 | PERSON      | Recurring_Micro    |         19 |    7631.00 |      401.63 |       153 |            0.124 |          44.00
+ PERSON_023 | PERSON      | Recurring_Transfer |         13 |    3200.00 |      246.15 |       117 |            0.111 |          54.00
+(10 rows)
+
+ month_name | month | total_high_risk_spend | potential_savings_if_halved | high_risk_transactions 
+------------+-------+-----------------------+-----------------------------+------------------------
+ January    |     1 |               1840.30 |                      920.15 |                      2
+ February   |     2 |               3162.00 |                     1581.00 |                      5
+ March      |     3 |              11011.00 |                     5505.50 |                     11
+ April      |     4 |              14786.04 |                     7393.02 |                     11
+ May        |     5 |               5269.00 |                     2634.50 |                      8
+ June       |     6 |               2675.90 |                     1337.95 |                      2
+(6 rows)
+
+ total_transactions | actual_leakage | predicted_leakage | true_positives | false_positives | false_negatives | true_negatives | recall_pct 
+--------------------+----------------+-------------------+----------------+-----------------+-----------------+----------------+------------
+                500 |             21 |                25 |              9 |              16 |              12 |            463 |      42.86
+(1 row)
+
+  txn_date  |  txn_no   | direction |  debit  | credit | cumulative_expense | cumulative_income | net_cash_flow | running_balance 
+------------+-----------+-----------+---------+--------+--------------------+-------------------+---------------+-----------------
+ 2026-01-17 | S82311575 | DEBIT     |  399.00 |   0.00 |             399.00 |              0.00 |       -399.00 |         -399.00
+ 2026-01-17 | S83226631 | DEBIT     | 1441.30 |   0.00 |            1840.30 |              0.00 |      -1840.30 |        -1840.30
+ 2026-01-18 | S49053123 | DEBIT     |   60.00 |   0.00 |            2618.30 |              0.00 |      -2618.30 |        -1900.30
+ 2026-01-18 | S52578155 | DEBIT     |   55.00 |   0.00 |            2558.30 |              0.00 |      -2558.30 |        -1955.30
+ 2026-01-18 | S98170129 | DEBIT     |  663.00 |   0.00 |            2503.30 |              0.00 |      -2503.30 |        -2618.30
+ 2026-01-19 | S8521577  | DEBIT     |  100.00 |   0.00 |            2718.30 |              0.00 |      -2718.30 |        -2718.30
+ 2026-01-19 | S92789037 | DEBIT     |   10.00 |   0.00 |            2728.30 |              0.00 |      -2728.30 |        -2728.30
+ 2026-01-20 | S23424751 | DEBIT     |  150.00 |   0.00 |            3070.30 |             80.00 |      -2990.30 |        -2878.30
+ 2026-01-20 | S23603506 | CREDIT    |    0.00 |  80.00 |            2870.30 |             80.00 |      -2790.30 |        -2798.30
+ 2026-01-20 | S49439885 | DEBIT     |   10.00 |   0.00 |            2880.30 |             80.00 |      -2800.30 |        -2808.30
+ 2026-01-20 | S56007809 | DEBIT     |  112.00 |   0.00 |            2840.30 |              0.00 |      -2840.30 |        -2920.30
+ 2026-01-20 | S67091056 | DEBIT     |   40.00 |   0.00 |            2920.30 |             80.00 |      -2840.30 |        -2960.30
+ 2026-01-20 | S67681299 | DEBIT     |   30.00 |   0.00 |            2870.30 |              0.00 |      -2870.30 |        -2990.30
+ 2026-01-21 | S92906736 | DEBIT     |   30.00 |   0.00 |            3100.30 |             80.00 |      -3020.30 |        -3020.30
+ 2026-01-21 | S93065400 | DEBIT     |   10.00 |   0.00 |            3110.30 |             80.00 |      -3030.30 |        -3030.30
+ 2026-01-22 | S65264900 | DEBIT     |   35.00 |   0.00 |            3145.30 |             80.00 |      -3065.30 |        -3065.30
+ 2026-01-23 | S19017427 | DEBIT     |  200.00 |   0.00 |            3645.30 |             80.00 |      -3565.30 |        -3265.30
+ 2026-01-23 | S27073375 | DEBIT     |  200.00 |   0.00 |            3445.30 |             80.00 |      -3365.30 |        -3465.30
+ 2026-01-23 | S44386136 | DEBIT     |   50.00 |   0.00 |            3195.30 |             80.00 |      -3115.30 |        -3515.30
+ 2026-01-23 | S44424523 | DEBIT     |   50.00 |   0.00 |            3245.30 |             80.00 |      -3165.30 |        -3565.30
+(20 rows)
+
+ month_name | month |     category     | category_spend | leakage_count | spend_rank 
+------------+-------+------------------+----------------+---------------+------------
+ January    |     1 | One_off_Micro    |        1772.00 |             0 |          1
+ January    |     1 | One_off_Transfer |        1441.30 |             0 |          2
+ January    |     1 | Recurring_Micro  |        1387.00 |             0 |          3
+ February   |     2 | One_off_Large    |        6133.00 |             0 |          1
+ February   |     2 | One_off_Transfer |        5115.00 |             0 |          2
+ February   |     2 | Recurring_Micro  |        3297.00 |             0 |          3
+ March      |     3 | One_off_Large    |       75000.00 |             0 |          1
+ March      |     3 | One_off_Transfer |       27228.00 |             0 |          2
+ March      |     3 | Recurring_Large  |       11243.60 |             0 |          3
+ April      |     4 | Travel           |        8556.00 |             0 |          1
+ April      |     4 | Recurring_Large  |        6334.00 |             0 |          2
+ April      |     4 | One_off_Transfer |        5953.00 |             0 |          3
+ May        |     5 | Bank Transfer    |       25000.00 |             0 |          1
+ May        |     5 | One_off_Transfer |        6742.40 |             0 |          2
+ May        |     5 | Travel           |        3542.00 |             0 |          3
+ June       |     6 | One_off_Large    |       12000.00 |             0 |          1
+ June       |     6 | Shopping         |        2269.00 |             3 |          2
+ June       |     6 | Food             |        1595.90 |             2 |          3
+ July       |     7 | Bank Charges     |          17.70 |             0 |          1
+(19 rows)
+
+  entity_id   | charge_count | min_charge | max_charge | total_charged | first_charge | last_charge | days_subscribed | avg_risk_score 
+--------------+--------------+------------+------------+---------------+--------------+-------------+-----------------+----------------
+ MERCHANT_005 |            5 |      59.00 |      69.00 |        305.00 | 2026-02-12   | 2026-06-16  |             124 |          46.20
+(1 row)
+
+  weekday  | transaction_count | total_spent | avg_spent | leakage_transactions | avg_risk_score | spend_rank 
+-----------+-------------------+-------------+-----------+----------------------+----------------+------------
+ Monday    |                54 |    84225.08 |   1559.72 |                    4 |          39.39 |          1
+ Tuesday   |                80 |    53240.96 |    665.51 |                    4 |          39.19 |          2
+ Friday    |                58 |    42793.42 |    737.82 |                    4 |          40.88 |          3
+ Saturday  |                49 |    30411.44 |    620.64 |                    2 |          51.73 |          4
+ Thursday  |                59 |    17691.60 |    299.86 |                    2 |          39.83 |          5
+ Sunday    |                45 |    16840.04 |    374.22 |                    2 |          50.71 |          6
+ Wednesday |                44 |     7917.40 |    179.94 |                    3 |          39.23 |          7
+(7 rows)
+
+  txn_date  |  txn_no   |      category      |   entity_id   |  amount  | p75_threshold | p90_threshold |  alert_level  | leakage_score |   risk_band   
+------------+-----------+--------------------+---------------+----------+---------------+---------------+---------------+---------------+---------------
+ 2026-03-02 | S40890027 | One_off_Large      | PERSON_065    | 75000.00 |        250.00 |       1000.00 | Top 10% Spend |         56.00 | High Risk
+ 2026-05-26 | T57352777 | Bank Transfer      | BANK_TRANSFER | 25000.00 |        250.00 |       1000.00 | Top 10% Spend |         33.00 | Moderate Risk
+ 2026-06-05 | U11379815 | One_off_Large      | PERSON_170    | 12000.00 |        250.00 |       1000.00 | Top 10% Spend |         56.00 | High Risk
+ 2026-04-25 | U64320593 | Travel             | MERCHANT_022  |  8556.00 |        250.00 |       1000.00 | Top 10% Spend |         61.00 | High Risk
+ 2026-03-06 | S95341245 | Recurring_Large    | PERSON_044    |  6243.60 |        250.00 |       1000.00 | Top 10% Spend |         45.00 | Moderate Risk
+ 2026-02-26 | S88036066 | One_off_Large      | PERSON_062    |  6133.00 |        250.00 |       1000.00 | Top 10% Spend |         46.00 | Moderate Risk
+ 2026-03-28 | S51274246 | Recurring_Large    | PERSON_009    |  5000.00 |        250.00 |       1000.00 | Top 10% Spend |         55.00 | High Risk
+ 2026-03-31 | S92156333 | One_off_Transfer   | PERSON_111    |  4000.00 |        250.00 |       1000.00 | Top 10% Spend |         47.00 | Moderate Risk
+ 2026-05-30 | T26297350 | One_off_Transfer   | PERSON_169    |  3637.00 |        250.00 |       1000.00 | Top 10% Spend |         57.00 | High Risk
+ 2026-04-05 | T67850181 | Recurring_Large    | PERSON_004    |  3634.00 |        250.00 |       1000.00 | Top 10% Spend |         65.00 | High Risk
+ 2026-03-27 | S90482446 | One_off_Transfer   | PERSON_090    |  3600.00 |        250.00 |       1000.00 | Top 10% Spend |         46.00 | Moderate Risk
+ 2026-05-01 | S41144946 | Travel             | MERCHANT_022  |  3542.00 |        250.00 |       1000.00 | Top 10% Spend |         50.00 | Moderate Risk
+ 2026-03-31 | T59832714 | One_off_Transfer   | PERSON_108    |  3100.00 |        250.00 |       1000.00 | Top 10% Spend |         46.00 | Moderate Risk
+ 2026-03-28 | S54114656 | One_off_Transfer   | PERSON_088    |  3000.00 |        250.00 |       1000.00 | Top 10% Spend |         46.00 | Moderate Risk
+ 2026-03-27 | S80364525 | One_off_Transfer   | PERSON_088    |  3000.00 |        250.00 |       1000.00 | Top 10% Spend |         46.00 | Moderate Risk
+ 2026-03-31 | T39764770 | Entertainment      | MERCHANT_016  |  2750.00 |        250.00 |       1000.00 | Top 10% Spend |         60.00 | High Risk
+ 2026-04-02 | U88132533 | Recurring_Large    | PERSON_004    |  2700.00 |        250.00 |       1000.00 | Top 10% Spend |         54.00 | High Risk
+ 2026-02-03 | S84514128 | One_off_Transfer   | PERSON_035    |  2340.00 |        250.00 |       1000.00 | Top 10% Spend |         56.00 | High Risk
+ 2026-05-29 | S76200392 | One_off_Transfer   | PERSON_167    |  2146.00 |        250.00 |       1000.00 | Top 10% Spend |         46.00 | Moderate Risk
+ 2026-03-30 | S71527574 | Shopping           | MERCHANT_014  |  2098.00 |        250.00 |       1000.00 | Top 10% Spend |         57.00 | High Risk
+ 2026-03-31 | T51961651 | Recurring_Transfer | PERSON_009    |  1798.00 |        250.00 |       1000.00 | Top 10% Spend |         46.00 | Moderate Risk
+ 2026-03-31 | T80123305 | One_off_Transfer   | PERSON_110    |  1733.00 |        250.00 |       1000.00 | Top 10% Spend |         46.00 | Moderate Risk
+ 2026-03-31 | T61760958 | One_off_Transfer   | PERSON_107    |  1700.00 |        250.00 |       1000.00 | Top 10% Spend |         46.00 | Moderate Risk
+ 2026-03-29 | S79263941 | Travel             | MERCHANT_013  |  1700.00 |        250.00 |       1000.00 | Top 10% Spend |         60.00 | High Risk
+ 2026-02-14 | S78150212 | One_off_Transfer   | PERSON_052    |  1606.00 |        250.00 |       1000.00 | Top 10% Spend |         56.00 | High Risk
+ 2026-03-31 | T76183454 | One_off_Transfer   | PERSON_105    |  1593.00 |        250.00 |       1000.00 | Top 10% Spend |         36.00 | Moderate Risk
+ 2026-03-29 | S20922568 | One_off_Transfer   | PERSON_100    |  1502.00 |        250.00 |       1000.00 | Top 10% Spend |         56.00 | High Risk
+ 2026-03-22 | S61868692 | One_off_Transfer   | PERSON_082    |  1500.00 |        250.00 |       1000.00 | Top 10% Spend |         56.00 | High Risk
+ 2026-06-17 | T48157038 | Food               | MERCHANT_035  |  1475.90 |        250.00 |       1000.00 | Top 10% Spend |         58.00 | High Risk
+ 2026-01-17 | S83226631 | One_off_Transfer   | PERSON_002    |  1441.30 |        250.00 |       1000.00 | Top 10% Spend |         56.00 | High Risk
+ 2026-06-12 | T6934562  | Shopping           | MERCHANT_031  |  1358.00 |        250.00 |       1000.00 | Top 10% Spend |         56.00 | High Risk
+ 2026-04-17 | S55703817 | One_off_Transfer   | PERSON_136    |  1313.00 |        250.00 |       1000.00 | Top 10% Spend |         45.00 | Moderate Risk
+ 2026-03-29 | S72755312 | One_off_Transfer   | PERSON_101    |  1200.00 |        250.00 |       1000.00 | Top 10% Spend |         55.00 | High Risk
+ 2026-06-17 | T17507016 | Entertainment      | MERCHANT_034  |  1200.00 |        250.00 |       1000.00 | Top 10% Spend |         59.00 | High Risk
+ 2026-04-30 | U67919566 | One_off_Transfer   | PERSON_144    |  1100.00 |        250.00 |       1000.00 | Top 10% Spend |         35.00 | Moderate Risk
+ 2026-04-28 | T13730241 | One_off_Transfer   | PERSON_143    |  1060.00 |        250.00 |       1000.00 | Top 10% Spend |         45.00 | Moderate Risk
+ 2026-04-29 | T75681670 | Recurring_Transfer | PERSON_032    |  1000.00 |        250.00 |       1000.00 | Top 10% Spend |         36.00 | Moderate Risk
+ 2026-03-27 | S49241898 | Electronics        | MERCHANT_012  |  1000.00 |        250.00 |       1000.00 | Top 10% Spend |         53.00 | High Risk
+ 2026-03-23 | S35806661 | Recurring_Transfer | PERSON_044    |  1000.00 |        250.00 |       1000.00 | Top 10% Spend |         45.00 | Moderate Risk
+ 2026-04-10 | T38945822 | Recurring_Transfer | PERSON_044    |  1000.00 |        250.00 |       1000.00 | Top 10% Spend |         45.00 | Moderate Risk
+ 2026-03-28 | S51296996 | Recurring_Transfer | PERSON_011    |  1000.00 |        250.00 |       1000.00 | Top 10% Spend |         55.00 | High Risk
+ 2026-05-29 | S17366266 | One_off_Transfer   | PERSON_166    |   959.40 |        250.00 |       1000.00 | Top 25% Spend |         45.00 | Moderate Risk
+ 2026-04-03 | S45795886 | One_off_Transfer   | PERSON_107    |   900.00 |        250.00 |       1000.00 | Top 25% Spend |         45.00 | Moderate Risk
+ 2026-02-01 | S47628761 | Recurring_Transfer | PERSON_004    |   900.00 |        250.00 |       1000.00 | Top 25% Spend |         65.00 | High Risk
+ 2026-04-23 | T33029251 | Recurring_Transfer | PERSON_023    |   890.00 |        250.00 |       1000.00 | Top 25% Spend |         45.00 | Moderate Risk
+ 2026-04-24 | T97401122 | Food               | MERCHANT_021  |   712.96 |        250.00 |       1000.00 | Top 25% Spend |         57.00 | High Risk
+ 2026-03-31 | T29598144 | One_off_Transfer   | PERSON_113    |   700.00 |        250.00 |       1000.00 | Top 25% Spend |         45.00 | Moderate Risk
+ 2026-03-30 | S26631626 | Recurring_Transfer | PERSON_044    |   675.00 |        250.00 |       1000.00 | Top 25% Spend |         45.00 | Moderate Risk
+ 2026-01-18 | S98170129 | Recurring_Transfer | PERSON_004    |   663.00 |        250.00 |       1000.00 | Top 25% Spend |         55.00 | High Risk
+ 2026-02-05 | S65669473 | Utilities          | MERCHANT_003  |   650.80 |        250.00 |       1000.00 | Top 25% Spend |         42.00 | Moderate Risk
+ 2026-02-02 | S29384738 | One_off_Transfer   | PERSON_031    |   619.00 |        250.00 |       1000.00 | Top 25% Spend |         54.00 | High Risk
+ 2026-05-25 | T19372826 | Recurring_Transfer | PERSON_023    |   615.00 |        250.00 |       1000.00 | Top 25% Spend |         44.00 | Moderate Risk
+ 2026-06-15 | U99617706 | Shopping           | MERCHANT_033  |   612.00 |        250.00 |       1000.00 | Top 25% Spend |         55.00 | High Risk
+ 2026-03-29 | S11667880 | Recurring_Transfer | PERSON_004    |   600.00 |        250.00 |       1000.00 | Top 25% Spend |         54.00 | High Risk
+ 2026-03-28 | S42911570 | One_off_Transfer   | PERSON_094    |   600.00 |        250.00 |       1000.00 | Top 25% Spend |         54.00 | High Risk
+ 2026-06-12 | S85866845 | Travel             | MERCHANT_030  |   571.21 |        250.00 |       1000.00 | Top 25% Spend |         48.00 | Moderate Risk
+ 2026-04-12 | S26147901 | Recurring_Transfer | PERSON_023    |   560.00 |        250.00 |       1000.00 | Top 25% Spend |         54.00 | High Risk
+ 2026-02-03 | S57183114 | One_off_Transfer   | PERSON_036    |   550.00 |        250.00 |       1000.00 | Top 25% Spend |         54.00 | High Risk
+ 2026-04-17 | S49885440 | One_off_Transfer   | PERSON_138    |   540.00 |        250.00 |       1000.00 | Top 25% Spend |         44.00 | Moderate Risk
+ 2026-04-07 | U66480318 | One_off_Transfer   | PERSON_127    |   520.00 |        250.00 |       1000.00 | Top 25% Spend |         44.00 | Moderate Risk
+ 2026-04-02 | U78683748 | One_off_Transfer   | PERSON_118    |   520.00 |        250.00 |       1000.00 | Top 25% Spend |         54.00 | High Risk
+ 2026-03-04 | S64812803 | Recurring_Transfer | PERSON_009    |   500.00 |        250.00 |       1000.00 | Top 25% Spend |         54.00 | High Risk
+ 2026-05-16 | S99416183 | Utilities          | MERCHANT_026  |   485.00 |        250.00 |       1000.00 | Top 25% Spend |         52.00 | High Risk
+ 2026-04-07 | U77125887 | Recurring_Micro    | PERSON_057    |   485.00 |        250.00 |       1000.00 | Top 25% Spend |         40.00 | Moderate Risk
+ 2026-06-17 | T67844542 | One_off_Micro      | PERSON_172    |   420.00 |        250.00 |       1000.00 | Top 25% Spend |         48.00 | Moderate Risk
+ 2026-05-03 | T14246679 | One_off_Micro      | PERSON_145    |   400.00 |        250.00 |       1000.00 | Top 25% Spend |         58.00 | High Risk
+ 2026-01-17 | S82311575 | One_off_Micro      | PERSON_001    |   399.00 |        250.00 |       1000.00 | Top 25% Spend |         58.00 | High Risk
+ 2026-03-28 | S66952788 | Recurring_Micro    | PERSON_004    |   395.00 |        250.00 |       1000.00 | Top 25% Spend |         59.00 | High Risk
+ 2026-03-09 | S38116426 | One_off_Micro      | PERSON_062    |   388.00 |        250.00 |       1000.00 | Top 25% Spend |         38.00 | Moderate Risk
+ 2026-05-27 | U53257858 | Utilities          | MERCHANT_003  |   379.00 |        250.00 |       1000.00 | Top 25% Spend |         31.00 | Moderate Risk
+ 2026-04-12 | S22813021 | One_off_Micro      | PERSON_018    |   370.00 |        250.00 |       1000.00 | Top 25% Spend |         42.00 | Moderate Risk
+ 2026-04-05 | T67605800 | Food               | MERCHANT_018  |   368.08 |        250.00 |       1000.00 | Top 25% Spend |         60.00 | High Risk
+ 2026-05-16 | S74795448 | Shopping           | MERCHANT_025  |   357.00 |        250.00 |       1000.00 | Top 25% Spend |         64.00 | High Risk
+ 2026-04-30 | U34242021 | Utilities          | MERCHANT_003  |   350.80 |        250.00 |       1000.00 | Top 25% Spend |         31.00 | Moderate Risk
+ 2026-05-27 | U53747046 | One_off_Micro      | PERSON_160    |   350.00 |        250.00 |       1000.00 | Top 25% Spend |         47.00 | Moderate Risk
+ 2026-03-31 | T70225571 | One_off_Micro      | PERSON_114    |   350.00 |        250.00 |       1000.00 | Top 25% Spend |         47.00 | Moderate Risk
+ 2026-04-02 | U62095012 | One_off_Micro      | PERSON_119    |   340.00 |        250.00 |       1000.00 | Top 25% Spend |         57.00 | High Risk
+ 2026-03-28 | S30389631 | Recurring_Micro    | PERSON_011    |   335.00 |        250.00 |       1000.00 | Top 25% Spend |         58.00 | High Risk
+ 2026-04-03 | S7808018  | Recurring_Micro    | PERSON_004    |   315.00 |        250.00 |       1000.00 | Top 25% Spend |         58.00 | High Risk
+ 2026-01-30 | S35041617 | One_off_Micro      | PERSON_027    |   310.00 |        250.00 |       1000.00 | Top 25% Spend |         47.00 | Moderate Risk
+ 2026-04-02 | U59559525 | One_off_Micro      | PERSON_120    |   300.00 |        250.00 |       1000.00 | Top 25% Spend |         57.00 | High Risk
+ 2026-05-26 | T87980582 | One_off_Micro      | PERSON_159    |   300.00 |        250.00 |       1000.00 | Top 25% Spend |         47.00 | Moderate Risk
+ 2026-05-02 | T9614929  | One_off_Micro      | PERSON_149    |   300.00 |        250.00 |       1000.00 | Top 25% Spend |         67.00 | High Risk
+ 2026-02-07 | S17212251 | One_off_Micro      | PERSON_045    |   299.00 |        250.00 |       1000.00 | Top 25% Spend |         57.00 | High Risk
+ 2026-06-13 | T71679289 | Shopping           | MERCHANT_024  |   299.00 |        250.00 |       1000.00 | Top 25% Spend |         49.00 | Moderate Risk
+ 2026-05-13 | U2867377  | Shopping           | MERCHANT_024  |   299.00 |        250.00 |       1000.00 | Top 25% Spend |         39.00 | Moderate Risk
+ 2026-03-31 | T47998411 | One_off_Micro      | PERSON_115    |   293.00 |        250.00 |       1000.00 | Top 25% Spend |         47.00 | Moderate Risk
+ 2026-01-29 | S74820071 | Recurring_Micro    | PERSON_023    |   280.00 |        250.00 |       1000.00 | Top 25% Spend |         48.00 | Moderate Risk
+ 2026-05-28 | U89427477 | One_off_Micro      | PERSON_164    |   280.00 |        250.00 |       1000.00 | Top 25% Spend |         47.00 | Moderate Risk
+ 2026-03-08 | S15939140 | Recurring_Micro    | PERSON_011    |   260.00 |        250.00 |       1000.00 | Top 25% Spend |         57.00 | High Risk
+ 2026-02-12 | S58083752 | Recurring_Micro    | PERSON_004    |   260.00 |        250.00 |       1000.00 | Top 25% Spend |         47.00 | Moderate Risk
+ 2026-04-02 | U67547416 | One_off_Micro      | PERSON_121    |   260.00 |        250.00 |       1000.00 | Top 25% Spend |         56.00 | High Risk
+ 2026-02-03 | S56233369 | One_off_Micro      | PERSON_038    |   260.00 |        250.00 |       1000.00 | Top 25% Spend |         56.00 | High Risk
+ 2026-03-15 | S59219301 | One_off_Micro      | PERSON_076    |   258.26 |        250.00 |       1000.00 | Top 25% Spend |         56.00 | High Risk
+ 2026-02-15 | S32878395 | Electronics        | MERCHANT_006  |   257.00 |        250.00 |       1000.00 | Top 25% Spend |         60.00 | High Risk
+ 2026-05-01 | S41792565 | One_off_Micro      | PERSON_145    |   250.00 |        250.00 |       1000.00 | Top 25% Spend |         56.00 | High Risk
+ 2026-03-31 | S94694667 | Recurring_Micro    | PERSON_011    |   250.00 |        250.00 |       1000.00 | Top 25% Spend |         47.00 | Moderate Risk
+(97 rows)
+
+  visit_type  | transaction_count | avg_amount | avg_risk_score | leakage_count | leakage_rate_pct 
+--------------+-------------------+------------+----------------+---------------+------------------
+ First Visit  |               189 |     918.98 |          45.40 |            15 |             7.94
+ Repeat Visit |               200 |     397.16 |          39.73 |             6 |             3.00
+(2 rows)
+
+      category      | transactions | total_spent | avg_amount | largest_transaction | leakage_count 
+--------------------+--------------+-------------+------------+---------------------+---------------
+ One_off_Large      |            1 |    75000.00 |   75000.00 |            75000.00 |             0
+ One_off_Transfer   |           13 |    27228.00 |    2094.46 |             4000.00 |             0
+ Recurring_Large    |            2 |    11243.60 |    5621.80 |             6243.60 |             0
+ Recurring_Transfer |            6 |     5573.00 |     928.83 |             1798.00 |             0
+ One_off_Micro      |           44 |     5000.38 |     113.65 |              388.00 |             0
+ Recurring_Micro    |           41 |     4150.00 |     101.22 |              395.00 |             0
+ Entertainment      |            1 |     2750.00 |    2750.00 |             2750.00 |             1
+ Shopping           |            2 |     2264.96 |    1132.48 |             2098.00 |             2
+ Travel             |            1 |     1700.00 |    1700.00 |             1700.00 |             0
+ Electronics        |            2 |     1070.00 |     535.00 |             1000.00 |             0
+ Food               |            1 |      199.00 |     199.00 |              199.00 |             1
+ Healthcare         |            1 |      170.00 |     170.00 |              170.00 |             0
+ Grocery            |            1 |      120.00 |     120.00 |              120.00 |             0
+ Subscription       |            1 |       59.00 |      59.00 |               59.00 |             1
+ Finance            |            1 |       10.00 |      10.00 |               10.00 |             0
+ Cash Withdrawal    |            3 |        0.00 |       0.00 |                0.00 |             0
+(16 rows)
+
