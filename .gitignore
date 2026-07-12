@@ -5,12 +5,12 @@ data/clean/
 __pycache__/
 *.pyc
 .ipynb_checkpoints/
-
 leakage/
-*.env
-__pycache__/
-*.pyc
 data/raw/
 data/clean/
 *.csv
 .env
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+outputs/query_results.txt
